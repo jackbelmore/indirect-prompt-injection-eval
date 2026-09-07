@@ -30,6 +30,6 @@ tools, so there is nothing there that works against a real system.
 
 ## Reporting a problem
 
-If you find a bug in the scoring — a trial classified as an exploit that is not one, or the
-reverse — open an issue with the tool log and the classified status. That is the part of this
-that matters.
+If you find a bug in the scoring, such as a trial classified as an exploit that is not one or the
+reverse, open an issue with the tool log and the classified status. That is the part of this that
+matters.
