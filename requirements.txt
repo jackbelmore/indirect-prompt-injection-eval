@@ -1,0 +1,9 @@
+# Everything the pipeline actually imports. There is no local model loading here:
+# Ollama serves the models over HTTP, so no torch, no transformers, no datasets.
+requests>=2.31.0
+numpy>=1.24.0
+scipy>=1.11.0
+
+# Only used by src/plot_results.py, which regenerates the Chapter 4 figures.
+# Nothing else in the harness imports it.
+matplotlib>=3.7.0

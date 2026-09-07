@@ -1,0 +1,26 @@
+# Your payloads. The library is yours to write and is deliberately not published here;
+# payloads/README.md and payloads/example_payload.json document the format.
+payloads/library.json
+
+# Everything the harness generates. Carrier documents are payload text in a wrapper, and
+# the trial logs are model output, so neither belongs in a public repository.
+documents/
+documents_demo/
+test_documents/
+results/
+figures/
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Compiled Go dashboard. `go run .` rebuilds it.
+tui/tui-app
+tui/ai-safety-tui
+tui/results/
+
+*.log
+.DS_Store
