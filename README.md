@@ -7,6 +7,21 @@ asked to summarise.
 Nothing on your machine is read or executed. The harness talks to a mock tool server that logs
 what the model tried to do and hands back a fabricated reply.
 
+## The dashboard
+
+![The run profile menu](screenshots/dashboard-menu.png)
+
+Pick a model and a run profile. The quick demo is six documents at one trial each, so a first run
+finishes in minutes rather than hours.
+
+![A run in progress, showing a tool call in the live log](screenshots/dashboard-running.png)
+
+While it runs you get the progress panel and the live log. Every exchange is a bubble: the prompt
+the model was given, its reply, and each tool call it made. A tool call is green when it asks for
+the document it was told to read and red when it asks for anything else, which is the same
+predicate the classifier scores the trial with. Both of these are the harness running against the
+placeholder payloads that ship here, which is why nothing turns red.
+
 ## The payloads and the results are not in here
 
 This repository is the measurement shell. The payload library and every trial log are
@@ -115,6 +130,7 @@ payloads/             the format your library has to match. The library itself i
 src/                  the pipeline: generator, mock server, runner, analysis, figures
 tui/                  the Go dashboard, dependencies vendored for offline builds
 tests/                classification tests, no model needed
+screenshots/          the dashboard, for the README
 ```
 
 `documents/`, `documents_demo/` and `results/` are created on first run and are gitignored.
