@@ -177,8 +177,9 @@ kappa; the deterministic classifier is still what the study reports.
 
 ## How this was built
 
-I used AI coding assistants (mainly Claude) as a pair-programmer while writing this harness, and
-reviewed and directed the work throughout. The methodology, the payload design and the
-interpretation of the results are my own.
+AI coding assistants (mainly Claude, through Claude Code) wrote the code to my specification, and
+I tested and corrected what came back. I designed the experiment and the checks on its scoring.
+For the payloads, I chose the attack type, target and obfuscation of the 14 originals, an
+assistant wrote their wording, and the rest were adapted from NVIDIA's garak and published papers.
 
 MIT licence, see `LICENSE`.
