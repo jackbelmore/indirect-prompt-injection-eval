@@ -22,7 +22,36 @@ model asks for the document it was told to read and red when it asks for anythin
 the same predicate the classifier scores the trial with. These shots run against the placeholder
 payloads that ship here, which is why nothing turns red.
 
-## The payloads and the results are not in here
+## What I found
+
+From the dissertation run: 19,530 valid trials across five quantised models served through
+Ollama (`llama3.1:8b`, `qwen2.5:1.5b`, `qwen2.5:7b`, `qwen3:8b` and the Mixture-of-Experts
+`qwen3:30b-a3b`), using a library of 31 payloads. Attack Success Rate (ASR) is the share of valid
+trials in which the model made the attacker's tool call.
+
+- **The carrier matters more than the model.** On `qwen2.5:7b` the same payloads succeeded 37.63%
+  of the time inside an email and 13.76% inside a README, a bigger gap than switching model.
+- **The newer version is much safer.** On the same payloads `qwen3:8b` was exploited in 7.78% of
+  trials against 22.03% for `qwen2.5:7b`.
+- **Mixture-of-Experts was not the safer one.** `qwen3:30b-a3b` was more vulnerable than the dense
+  `qwen3:8b`. It is also the bigger model, so this cannot separate routing from size.
+- **Reasoning mode cuts both ways.** On `qwen3:8b` thinking lowered ASR on one wave of payloads
+  (25.6% to 20.2%) and raised it on another (17.8% to 30.0%). On `qwen3:30b-a3b` it made no
+  measurable difference.
+- **A hardened system prompt is not a safety net.** On one attack against `qwen2.5:7b` it made
+  things worse.
+- **Encoding kills a payload.** A strong one fell from 61.1% to 0.0% once it was base64-encoded.
+- **Models say no and do it anyway.** Replies refused in words while the tool log recorded the
+  exploit, on models from 1.5B to 30B parameters.
+
+Every headline rate carries a Wilson interval and every comparison a Fisher's exact test, with
+Bonferroni correction where the comparisons are many. Those are reported in the dissertation.
+
+What I take from it: before giving a local model tools, test it with many payloads in many
+carriers, block the tools it does not need, and sandbox it away from anything sensitive. What a
+model is allowed to read deserves as much attention as which model you pick.
+
+## The payloads and the raw results are not in here
 
 **You supply your own.** `payloads/README.md` has the format, `payloads/example_payload.json` is a
 harmless file to copy. Read `SECURITY.md` first.
