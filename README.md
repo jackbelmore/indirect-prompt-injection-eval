@@ -11,10 +11,16 @@
 
 </div>
 
-This is the evaluation harness from my MSc dissertation. It serves open-weight models locally
+This is the evaluation harness from my MSc dissertation, *Measuring Indirect Prompt Injection
+Vulnerability in Tool-Enabled Local LLMs* (MSc Cyber Security and Technology, Cardiff University,
+module CMT400). It serves open-weight models locally
 through Ollama, gives them two tools backed by a mock MCP server, hides an attacker's instruction
 inside the document they are asked to summarise, and scores every trial from the **tool log, not
 the reply**.
+
+**Status:** submitted September 2026. This repository is the measurement harness. Payloads and raw
+trial outputs are deliberately not published.
+<!-- TODO(user): add thesis link -->
 
 <p align="center">
   <img src="screenshots/dashboard-running.png" alt="A run in progress, showing a tool call in the live log" width="820">
@@ -27,7 +33,8 @@ the reply**.
   <a href="#scoring">Scoring</a> ·
   <a href="#tests">Tests</a> ·
   <a href="#running-the-pieces-by-hand">Running the pieces by hand</a> ·
-  <a href="#how-this-was-built">How this was built</a>
+  <a href="#how-this-was-built">How this was built</a> ·
+  <a href="#citing">Citing</a>
 </p>
 
 ## Key findings
@@ -217,6 +224,14 @@ AI coding assistants (mainly Claude, through Claude Code) wrote the code to my s
 I tested and corrected what came back. I designed the experiment and the checks on its scoring.
 For the payloads, I chose the attack type, target and obfuscation of the 14 originals, an
 assistant wrote their wording, and the rest were adapted from NVIDIA's garak and published papers.
+
+## Citing
+
+[`CITATION.cff`](CITATION.cff) has the details, and GitHub's "Cite this repository" button turns it
+into BibTeX or APA. In short:
+
+> Belmore, J. (2026). *Measuring Indirect Prompt Injection Vulnerability in Tool-Enabled Local
+> LLMs*. MSc dissertation, School of Computer Science and Informatics, Cardiff University.
 
 ## Licence
 
