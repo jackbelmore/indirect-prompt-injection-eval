@@ -4,6 +4,7 @@
 
 **How often does a local model with tools obey an instruction hidden inside a document it was asked to read?**
 
+[![CI](https://github.com/jackbelmore/indirect-prompt-injection-eval/actions/workflows/ci.yml/badge.svg)](https://github.com/jackbelmore/indirect-prompt-injection-eval/actions/workflows/ci.yml)
 ![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![Go 1.24+](https://img.shields.io/badge/go-1.24%2B-00ADD8?logo=go&logoColor=white)
 ![Ollama](https://img.shields.io/badge/models-Ollama-000000?logo=ollama&logoColor=white)
@@ -197,6 +198,9 @@ Attack Success Rate is the share of valid trials in the first two.
 18 classifier tests, the ones the scoring rests on. They stub out the network, so no model is
 needed. The script also builds the Go dashboard, runs its tests, and starts it once. A nineteenth
 test needs Ollama and is skipped with a note when it is not running.
+
+CI runs the same script on every push, with no model available, plus a gitleaks scan of the
+history.
 
 ## Running the pieces by hand
 
