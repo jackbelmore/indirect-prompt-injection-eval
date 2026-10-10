@@ -21,7 +21,6 @@ the reply**.
 
 **Status:** submitted September 2026. This repository is the measurement harness. Payloads and raw
 trial outputs are deliberately not published.
-<!-- TODO(user): add thesis link -->
 
 <p align="center">
   <img src="screenshots/dashboard-running.png" alt="A run in progress, showing a tool call in the live log" width="820">
