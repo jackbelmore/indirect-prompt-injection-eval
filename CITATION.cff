@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this harness, please cite the dissertation it was built for."
+title: "Indirect Prompt Injection in Tool-Enabled Local LLMs: evaluation harness"
+type: software
+authors:
+  - family-names: Belmore
+    given-names: Jack
+license: MIT
+repository-code: "https://github.com/jackbelmore/indirect-prompt-injection-eval"
+keywords:
+  - prompt injection
+  - indirect prompt injection
+  - LLM security
+  - AI safety
+  - tool use
+  - Model Context Protocol
+  - Ollama
+preferred-citation:
+  type: thesis
+  thesis-type: "MSc dissertation"
+  title: "Measuring Indirect Prompt Injection Vulnerability in Tool-Enabled Local LLMs"
+  authors:
+    - family-names: Belmore
+      given-names: Jack
+  institution:
+    name: "Cardiff University, School of Computer Science and Informatics"
+  year: 2026
+  month: 9

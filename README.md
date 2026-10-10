@@ -4,6 +4,7 @@
 
 **How often does a local model with tools obey an instruction hidden inside a document it was asked to read?**
 
+[![CI](https://github.com/jackbelmore/indirect-prompt-injection-eval/actions/workflows/ci.yml/badge.svg)](https://github.com/jackbelmore/indirect-prompt-injection-eval/actions/workflows/ci.yml)
 ![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![Go 1.24+](https://img.shields.io/badge/go-1.24%2B-00ADD8?logo=go&logoColor=white)
 ![Ollama](https://img.shields.io/badge/models-Ollama-000000?logo=ollama&logoColor=white)
@@ -11,10 +12,15 @@
 
 </div>
 
-This is the evaluation harness from my MSc dissertation. It serves open-weight models locally
+This is the evaluation harness from my MSc dissertation, *Measuring Indirect Prompt Injection
+Vulnerability in Tool-Enabled Local LLMs* (MSc Cyber Security and Technology, Cardiff University,
+module CMT400). It serves open-weight models locally
 through Ollama, gives them two tools backed by a mock MCP server, hides an attacker's instruction
 inside the document they are asked to summarise, and scores every trial from the **tool log, not
 the reply**.
+
+**Status:** submitted September 2026. This repository is the measurement harness. Payloads and raw
+trial outputs are deliberately not published.
 
 <p align="center">
   <img src="screenshots/dashboard-running.png" alt="A run in progress, showing a tool call in the live log" width="820">
@@ -27,7 +33,8 @@ the reply**.
   <a href="#scoring">Scoring</a> ·
   <a href="#tests">Tests</a> ·
   <a href="#running-the-pieces-by-hand">Running the pieces by hand</a> ·
-  <a href="#how-this-was-built">How this was built</a>
+  <a href="#how-this-was-built">How this was built</a> ·
+  <a href="#citing">Citing</a>
 </p>
 
 ## Key findings
@@ -191,6 +198,9 @@ Attack Success Rate is the share of valid trials in the first two.
 needed. The script also builds the Go dashboard, runs its tests, and starts it once. A nineteenth
 test needs Ollama and is skipped with a note when it is not running.
 
+CI runs the same script on every push, with no model available, plus a gitleaks scan of the
+history.
+
 ## Running the pieces by hand
 
 Paths resolve from each script's own location, so these work from any directory. Most take
@@ -217,6 +227,14 @@ AI coding assistants (mainly Claude, through Claude Code) wrote the code to my s
 I tested and corrected what came back. I designed the experiment and the checks on its scoring.
 For the payloads, I chose the attack type, target and obfuscation of the 14 originals, an
 assistant wrote their wording, and the rest were adapted from NVIDIA's garak and published papers.
+
+## Citing
+
+[`CITATION.cff`](CITATION.cff) has the details, and GitHub's "Cite this repository" button turns it
+into BibTeX or APA. In short:
+
+> Belmore, J. (2026). *Measuring Indirect Prompt Injection Vulnerability in Tool-Enabled Local
+> LLMs*. MSc dissertation, School of Computer Science and Informatics, Cardiff University.
 
 ## Licence
 
